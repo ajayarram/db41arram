@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  - let cows=[{cowName:"Ongole",habitat:"rural area",price:30000},{cowName:"prakasham",habitat:"cattle shed",price:50000},{cowName:"Guntur",habitat:"Village place",price:80000}]
+  div(class="container-fluid mt-3")
+  div(class="row")
+    each cow,index in cows 
+        div(class="col-sm-4 m-1 p-3" onclick=`buy(${index})` style=("font-weight:bolder")) #{cow.cowName} - #{cow.habitat} -  #{cow.price}
+  script.
+     
+      function buy(itemNo)
+      {
+        alert(`You purchased Item ${itemNo+1}`)
+      }
