@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1(id="ajayTitle")= title
+
+  - let cowid = toShow._id
+  - let cowName = toShow.cowName
+  - let habitat = toShow.habitat
+  - let price = toShow.price
+  div
+    div.row
+      div(class='cowAttr mr-3') cow ID is:
+      div(class="list ajay") #{cowid}
+    div.row
+      div(class='cowAttr mr-3') cow Name is:
+      div(class="list") #{cowName}
+    div.row
+      div(class='cowAttr mr-3')  habitat is:
+      div(class="list") #{habitat}
+    div.row
+      div(class='cowAttr mr-3')  cow price is:
+      div(class="list") #{price}

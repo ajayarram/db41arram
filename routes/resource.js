@@ -17,4 +17,5 @@ router.put('/resource/cow/:id', cow_controller.cow_update_put);
 router.get('/resource/cow/:id', cow_controller.cow_detail);
 // GET request for list of all Costume items.
 router.get('/resource/cow', cow_controller.cow_list);
+
 module.exports = router;
