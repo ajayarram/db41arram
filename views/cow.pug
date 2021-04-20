@@ -2,13 +2,18 @@ extends layout
 
 block content
   h1= title
-  - let cows=results
+  - let cows= results
   div(class="container-fluid mt-3")
   div(class="row")
     each cow,index in cows 
-        div(class="col-sm-4 m-1 p-3" onclick=`buy(${index})` style=("font-weight:bolder")) #{cow.cowName} - #{cow.habitat} -  #{cow.price}
+      - let destination = `dispatch(\"/cow/update?id=${cow._id}\")`
+        div(class="col-sm-4 m-1 p-3"  style=("font-weight:bolder")) #{cow.cowName} - #{cow.habitat} -  #{cow.price}
+          button.btn( class="btn-primary ml-1" onclick= destination) Update
+
   script.
-     
+      function dispatch(path){
+      window.location.href=path
+      }
       function buy(itemNo)
       {
         alert(`You purchased Item ${itemNo+1}`)
