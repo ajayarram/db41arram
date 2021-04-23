@@ -1,14 +1,25 @@
-extends layout
+//- extends layout
 
+//- block content
+//-   h1= title
+//-   p Welcome  #{title}
+//-   button(type = "button" class = "btn btn-danger" onclick="update()") Press Me
+//-   div(id="target" class="container text-center m-2 p-3" style="color:red;font-weight:600; background-color:yellow;") display  
+//-   script.
+//-       var client_count=0 
+//-       function update(){
+//-         client_count++;
+//-         document.getElementById("target").innerHTML=`Value now ${client_count}`
+//-       } 
+//-   a(href="cow" ) About Cows
+extends layout
 block content
-  h1= title
-  p Welcome  #{title}
-  button(type = "button" class = "btn btn-danger" onclick="update()") Press Me
-  div(id="target" class="container text-center m-2 p-3" style="color:red;font-weight:600; background-color:yellow;") display  
-  script.
-      var client_count=0 
-      function update(){
-        client_count++;
-        document.getElementById("target").innerHTML=`Value now ${client_count}`
-      } 
-  a(href="cow" ) About Cows
+  if (!user)
+    a(href="/login") Login
+    br
+    a(href="/register") Register
+  if (user)
+    p You are currently logged in as #{user.username}
+    a(href="/cow") Take me to cows
+    br
+    a(href="/logout") Logout

@@ -11,6 +11,7 @@
   </head>
   <body>
     <h1></h1>
+    <div id="errors" style:{display:block;}> </div>
     <form id="CowForm" action="/resource/resource/cow" method="POST">
       <div class="form-group">
         <label class="cowAttr" for="cowName">cow type</label>
@@ -34,10 +35,16 @@
           method: 'POST',
           body: new URLSearchParams(new FormData(event.target)) // event.target is the form
         }).then((resp) => {
+          document.getElementById("errors").style.display="block"
           console.log(resp.json)
           return resp.json(); // or resp.text() or whatever the server sends
         }).then((body) => {
-          alert("Save succeded")
+          if(body.name){
+            document.getElementById("errors").innerHTML=`${body.name}  \n ${body.message}\n`;
+            alert("Save Failed")
+          }else{
+             alert("Save succeded")
+          }
           // TODO handle body
         }).catch((error) => {
           // TODO handle error

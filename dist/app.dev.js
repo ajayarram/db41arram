@@ -126,7 +126,7 @@ function recreateDB() {
           instance2 = new cow({
             cowName: "prakasham",
             habitat: "cattle shed",
-            price: 50000
+            price: 45000
           });
           instance2.save(function (err, doc) {
             if (err) return console.error(err);
@@ -135,7 +135,7 @@ function recreateDB() {
           instance3 = new cow({
             cowName: "Guntur",
             habitat: "Village place",
-            price: 80000
+            price: 40000
           });
           instance3.save(function (err, doc) {
             if (err) return console.error(err);

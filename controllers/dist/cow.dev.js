@@ -87,15 +87,16 @@ exports.cow_create_post = function _callee3(req, res) {
         case 8:
           _result = _context3.sent;
           res.send(_result);
-          _context3.next = 15;
+          _context3.next = 16;
           break;
 
         case 12:
           _context3.prev = 12;
           _context3.t0 = _context3["catch"](5);
-          res.error(500, "{\"error\": ".concat(_context3.t0, "}"));
+          res.send(_context3.t0);
+          res.status(500);
 
-        case 15:
+        case 16:
         case "end":
           return _context3.stop();
       }
